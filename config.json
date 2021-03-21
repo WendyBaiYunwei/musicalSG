@@ -1,0 +1,6 @@
+{
+  "raw_train": "dataset/csv_train/*.csv",
+  "raw_test": "dataset/csv_test/*.csv",
+  "npy_train": "dataset/train.npy",
+  "npy_test": "dataset/test.npy"
+}
