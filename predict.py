@@ -3,6 +3,7 @@
 # in command line terminal, call "python predict.py A B" eg. "python predict.py LSTM 1"
 # A: LSTM or RFC
 # B: 1 or 0 (1 means X.npy is already padded like in train.py, 0 means X.npy is not yet padded)
+# Output: y_pred.npy will be saved as "./dataset/y_pred.npy"
 
 from keras import backend as K
 from keras_preprocessing import sequence
