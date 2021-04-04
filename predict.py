@@ -40,10 +40,10 @@ def notpreprop_load():
     # if X.npy is not preprocessed
     x_raw = np.load('dataset/X.npy', allow_pickle=True)
     
-    x = np.zeros((1801 * 185, 32))
+    x = np.zeros((len(x_raw) * 185, 32))
     #y = np.zeros((1801 * 185))
     n = 0
-    for i in range(1801):
+    for i in range(len(x_raw)):
         # pad the current song's bars
         for j in range(185):
            # if j < len(train[i][1]) and 1 in train[i][1][j]:
@@ -57,7 +57,12 @@ def notpreprop_load():
                 else:
                     x[n][k] = 12
             n += 1
-    return x
+    rem = []
+    for i in range(len(x)):
+        if all(x[i] == 12):
+            rem.append(i)
+    xn = np.delete(x, rem, 0)
+    return xn
 
 def predict(m, x):
     y_predict = m.predict(x)
